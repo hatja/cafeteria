@@ -32,7 +32,7 @@ class WalletController extends Controller
                 $syncArray = [];
                 foreach ($monthAmount as $monthId => $amount) {
                     if ($month = Month::find($monthId)) {
-                        $syncArray[$monthId] = ['amount' => $amount];
+                        $syncArray[$monthId] = ['amount' => $amount ?: 0];
                     }
                 }
                 $wallet->months()->sync($syncArray);
